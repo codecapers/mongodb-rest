@@ -55,10 +55,10 @@ Contents
 Installation
 ------------
 
-Installation is via npm: 
+Installation is via npm:
 > npm install mongodb-rest
 
-You can install globally using -g: 
+You can install globally using -g:
 > npm install -g mongodb-rest
 
 Now issue `mongodb-rest` on the command line and the server should start.
@@ -99,7 +99,7 @@ When starting the server programmatically you can pass in a Javascript object fo
 
 Here is an example JSON configuration object:
 
-	{ 
+	{
 		"db": "mongodb://localhost:27017",
 		"server": {
 			"port": 3000,
@@ -189,7 +189,7 @@ _Format:_ `GET /dbs`
     ETag: W/"1b-134804454"
     Date: Thu, 02 Jul 2015 08:02:26 GMT
     Connection: keep-alive
-    
+
     [
         "local",
         "test"
@@ -210,7 +210,7 @@ _Format:_`GET /<db>/`
     ETag: W/"1b-134804454"
     Date: Thu, 02 Jul 2015 08:02:26 GMT
     Connection: keep-alive
-    
+
     [
        "new-collection",
        "startup_log",
@@ -246,7 +246,7 @@ _Format:_`GET /<db>/<collection>?output=csv`
 
 **List documents satisfying a query:**
 _Format:_`GET /<db>/<collection>?query={"key":"value"}`
-    
+
     $ curl -X "GET" http://localhost:3000/test/newcollection \
     -d 'query={"attribute":"value"}
     [
@@ -270,16 +270,16 @@ _Format:_`GET /<db>/<collection>?query={"key":{"second_key":{"_id":"value"}}}`
             }
         }
         ]
-        
+
 **Return document by id:**
 _Format_ `GET /<db>/<collection>/id`
-    
+
     $ curl -X "GET" http://localhost:3000/test/nested/5594bf2b019d364a083f2e03
     {
         "_id": "5594bf2b019d364a083f2e03",
         "attribute": "hello"
     }
-    
+
 **Inserting documents:**
 _Format:_ `POST /<db>/<collection>`
 
@@ -289,7 +289,7 @@ _Format:_ `POST /<db>/<collection>`
     >   -H 'Content-Type: application/json' \
     >   -H 'Accept: application/json' \
     >   --data '{"title": "Some title", "content": "document content"}'
-    
+
     HTTP/1.1 201 CREATED
     Date: Thu, 02 Jul 2015 12:50:34 GMT
     Connection: keep-alive
@@ -300,7 +300,7 @@ _Format:_ `POST /<db>/<collection>`
     {
         "ok": 1
     }
-    
+
 **Updating a document:**
 _Format_: `PUT /<db>/<collection>/id`
 
@@ -315,7 +315,7 @@ _Format_: `PUT /<db>/<collection>/id`
     {
         "ok": 1
     }
-    
+
 **Deleting a document by id:**
 _Format:_ `DELETE /<db>/<collection>/id`
 
@@ -337,7 +337,7 @@ Content Type:
 Dependencies
 ------------
 
-* Are indicated in package.json. 
+* Are indicated in package.json.
 
 Auth
 ----
@@ -358,7 +358,7 @@ Authentication is enabled by adding `auth` to config.json as follows:
 		"usersDBConnection": "mongodb://localhost/auth",
 		"usersCollection": "users",
 		"tokenDBConnection": "mongodb://localhost/auth",
-		"tokensCollectionName": "tokens",
+		"tokensCollection": "tokens",
 		"universalAuthToken": "this-token-grants-universal-access-so-please-change-it",
 		"tokenExpirationTimeHours": 8
 	}
@@ -373,7 +373,7 @@ Here are the docs for mongodb connection strings: http://docs.mongodb.org/manual
 The following are optional:
 
 * usersCollection - The auth database collection where users are stored.
-* tokensCollectionName - The auth database collection where tokens are stored.
+* tokensCollection - The auth database collection where tokens are stored.
 * universalAuthToken - Specifies a token that can be used for universal authorization.
 * tokenExpirationTimeHours - Specifies the timeout in hours before tokens must be renewed by 'login'.
 
@@ -392,9 +392,9 @@ You can get the code by forking/cloning the repo at:
 Testing
 -------
 
-Integration tests use jasmine-node. 
+Integration tests use jasmine-node.
 
-Run 'jasmine-node' from the main folder: 
+Run 'jasmine-node' from the main folder:
 
 >jasmine-node .\ --verbose
 

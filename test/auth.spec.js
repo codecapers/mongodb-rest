@@ -45,7 +45,7 @@ describe('mongodb-rest', function () {
         },
         logger: {
             info: function () {},
-            warning: function () {},
+            warn: function () {},
             error: function () {},
             verbose: function () {},
         }

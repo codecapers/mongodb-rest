@@ -18,7 +18,6 @@ var itemHttp = test.itemHttp;
 var post = test.post;
 var put = test.put;
 var del = test.del;
-var Q = require('q');
 var extend = require("extend");
 
 describe('mongodb-rest', function () {
